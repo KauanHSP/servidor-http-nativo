@@ -1,17 +1,17 @@
-const http = require('node:http');
+const http = require('node:http')
 
-const server = http.createServer();//variavel vira o servidor e vira objeto
+const porta = 3000
 
-const port = 3000;
+const server = http.createServer();
 
-server.on('request', (req, res) => {//metodo "on" parametros: req= requisicao res= resposta
-    console.log(`Requisicao recebida! Metodo ${req.method} e Rota: ${req.url}`);//objetos tem atributos e metodos
-    res.writeHead(201, {"Content-Type": "text/plain; charset=utf-8"});
-    res.end("Recurso criado");
+server.on('request', (req, res) => {
+    console.log(`Requisição recebida! ${req.method} ${req.url}`);
+
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    res.end("Servidor Funcionando!");    
 });
 
-server.listen(port, () => {
-    console.log(`Servidor escutando na porta ${port}`);
+server.listen(porta, ()=> {
+    console.log(`Servidor ouvindo na porta ${porta}`)
 });
-
-//2teste para salvar
