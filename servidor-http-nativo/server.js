@@ -6,8 +6,8 @@ const port = 3000;
 
 server.on('request', (req, res) => {//metodo "on" parametros: req= requisicao res= resposta
     console.log(`Requisicao recebida! Metodo ${req.method} e Rota: ${req.url}`);//objetos tem atributos e metodos
-    res.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
-    res.end("Servidor HTTP nativo Funcional!");
+    res.writeHead(201, {"Content-Type": "text/plain; charset=utf-8"});
+    res.end("Recurso criado");
 });
 
 server.listen(port, () => {
