@@ -45,16 +45,19 @@ const server = http.createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json')
 
     if (req.method == "GET" && urlObj.pathname == "/contato"){
+        console.log(`Requisição recebida! ${req.method} ${req.url}`)
         res.statusCode = 200
         return res.end(JSON.stringify({"numero_telefone": "67 99999-9999", "endereco": "Rua da Alegria, 99"}))
     }
 
     if (req.method == "GET" && urlObj.pathname == "/produtos") {
+        console.log(`Requisição recebida! ${req.method} ${req.url}`)
         res.statusCode = 200
         return res.end(JSON.stringify(produtos));
     }
 
     if (req.method == "GET" && urlObj.pathname == "/status") {
+        console.log(`Requisição recebida! ${req.method} ${req.url}`)
         res.statusCode = 200
         return res.end(JSON.stringify(status));
     }
@@ -63,6 +66,7 @@ const server = http.createServer((req, res) => {
         return res.end(JSON.stringify({"data": "Página Inicial"}))
     }
     else {
+        console.log(`Requisição recebida! ${req.method} ${req.url}`)
         res.statusCode = 404
         return res.end(JSON.stringify({"Erro": "404", "mensagem": "pagina não encontrada"}))
     }
