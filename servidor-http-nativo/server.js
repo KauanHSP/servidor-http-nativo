@@ -64,7 +64,7 @@ const server = http.createServer((req, res) => {
     }
     else {
         res.statusCode = 404
-        return res.end("Erro 404 - pagina não encontrada")
+        return res.end(JSON.stringify({"Erro": "404", "mensagem": "pagina não encontrada"}))
     }
 
     
