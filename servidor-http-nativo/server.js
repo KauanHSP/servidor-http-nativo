@@ -23,7 +23,6 @@ server.listen(porta, ()=> {
 */
 
 import http from 'node:http'
-
 import { url } from 'node:inspector'
 import { URL } from 'node:url'
 
@@ -51,6 +50,10 @@ const server = http.createServer((req, res) => {
 
     if (req.method == "GET" && urlObj.pathname == "/produtos") {
         return res.end(JSON.stringify(produtos));
+    }
+
+    if (req.method == "GET" && urlObj.pathname == "/status") {
+        return res.end(JSON.stringify(status));
     }
 
     res.end(JSON.stringify({"data": "Página Inicial"}))
